@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require("../controllers/PessoaController");
+const controller = require("../controllers/pessoaController");
 
 router.post("/", (req, res) => {
     controller.save(req, res);
