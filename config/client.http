@@ -15,3 +15,17 @@ Content-Type: application/json
 ###
 
 GET {{url}}/pessoa HTTP/1.1
+
+###
+
+PUT {{url}}/pessoa/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Anderson",
+    "sobrenome": "Fulano"
+}
+
+###
+
+DELETE {{url}}/pessoa/3 HTTP/1.1

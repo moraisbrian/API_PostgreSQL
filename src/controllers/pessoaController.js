@@ -17,8 +17,6 @@ exports.save = (req, res) => {
             res.status(201).json({ "Message": "Ok" });
         }
     });
-
-    pgConn.end();
 }
 
 exports.getAll = (req, res) => {
@@ -30,5 +28,42 @@ exports.getAll = (req, res) => {
             res.status(400).json({ "Message": "Error" });
         }
     });
-    pgConn.end();
+}
+
+exports.update = (req, res) => {
+    pgConn.connect();
+    let id = req.params.id;
+    let nome = req.body.nome;
+    let sobrenome = req.body.sobrenome;
+
+    const query = {
+        text: 'update Pessoa set nome = $1, sobrenome = $2 where id = $3',
+        values: [nome, sobrenome, id] 
+    }
+
+    pgConn.query(query, (error, result) => {
+        if (error) {
+            res.status(400).json({ "Message": "Error" });
+        } else {
+            res.status(200).json({ "Message": "Ok" });
+        }
+    });
+}
+
+exports.delete = (req, res) => {
+    pgConn.connect();
+    let id = req.params.id;
+
+    const query = {
+        text: 'delete from Pessoa where id = $1',
+        values: [id]
+    }
+
+    pgConn.query(query, (error, result) => {
+        if (error) {
+            res.status(400).json({ "Message": "Error" });
+        } else {
+            res.status(200).json({ "Message": "Ok" });
+        }
+    });
 }
