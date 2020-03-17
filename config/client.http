@@ -8,8 +8,8 @@ POST {{url}}/pessoa HTTP/1.1
 Content-Type: application/json
 
 {
-    "nome": "Marcos",
-    "sobrenome": "Antonio"
+    "nome": "Fulano",
+    "sobrenome": "Ciclano"
 }
 
 ###
@@ -18,14 +18,18 @@ GET {{url}}/pessoa HTTP/1.1
 
 ###
 
-PUT {{url}}/pessoa/2 HTTP/1.1
+GET {{url}}/pessoa/6 HTTP/1.1
+
+###
+
+PUT {{url}}/pessoa/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nome": "Anderson",
-    "sobrenome": "Fulano"
+    "nome": "Brian",
+    "sobrenome": "Morais"
 }
 
 ###
 
-DELETE {{url}}/pessoa/3 HTTP/1.1
+DELETE {{url}}/pessoa/5 HTTP/1.1

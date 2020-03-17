@@ -9,6 +9,10 @@ router.get("/", (req, res) => {
     controller.getAll(req, res);
 });
 
+router.get("/:id", (req, res) => {
+    controller.getOne(req, res);
+});
+
 router.put("/:id", (req, res) => {
     controller.update(req, res);
 });
